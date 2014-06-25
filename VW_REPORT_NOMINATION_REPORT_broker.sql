@@ -99,7 +99,9 @@ SELECT PK.PROFITCENTER,
           END
              AS NOM_PHYS_ACT,
            PK.TRADEDATE AS TRADEDATE,
-           PK.PRICEDIFF AS PRICEDIFF
+           PK.PRICEDIFF AS PRICEDIFF,
+           PK.BROKER AS BROKER,
+           PK.BROKERDETAIL AS BROKERDETAIL
      -- select count(*)
      FROM (SELECT T.XPROFITCENTER AS PROFITCENTER,
                   T.COUNTERPARTY,
@@ -120,7 +122,9 @@ SELECT PK.PROFITCENTER,
                   PP.XPOSITIONSTATUS,
                   T.VALUATIONSTATUS,
                   T.TRADEDATE,
-                  FEE.PRICEDIFF
+                  FEE.PRICEDIFF,
+                  T.BROKER,
+                  T.BROKERDETAIL
              -- select count(*)
              FROM TRADE T
                   INNER JOIN PHYSICALPOSITION PP
